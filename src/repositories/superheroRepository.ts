@@ -1,6 +1,7 @@
 // src/repositories/SuperHeroRepository.ts
 import SuperHero from '../models/superheroModel';
 import { ISuperhero } from '../models/interfaces/ISuperhero';
+import { ObjectId } from 'mongodb';
 
 class SuperHeroRepository {
   // Criação de um novo super-herói
@@ -23,9 +24,9 @@ class SuperHeroRepository {
   }
 
   // Atualização de super-herói
-  public async update(nome: string, updatedData: Partial<ISuperhero>): Promise<ISuperhero | null> {
+  public async update(id: string, updatedData: Partial<ISuperhero>): Promise<ISuperhero | null> {
     try {
-      return await SuperHero.findOneAndUpdate({ nome }, updatedData, { new: true });
+      return await SuperHero.findOneAndUpdate({_id: new ObjectId(id)}, updatedData, { new: true });
     } catch (error) {
       throw new Error(`Erro ao atualizar super-herói: ${(error as Error).message}`);
     }

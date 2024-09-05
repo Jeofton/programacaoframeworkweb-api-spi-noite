@@ -30,7 +30,7 @@ export class SuperheroController {
 
   async update(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
-    const updatedSuperhero = await service.updateSuperhero(id, req.body);
+    const updatedSuperhero = await service.updateSuperhero( id, req.body);
     if (!updatedSuperhero) {
       return res.status(404).json({ message: 'Superhero not found' });
     }

@@ -20,8 +20,8 @@ export class SuperheroService {
   }
 
   // Método para atualizar um super-herói existente
-  async updateSuperhero(nome: string, superhero: Partial<ISuperhero>): Promise<ISuperhero | null> {
-    return this.repository.update(nome, superhero);
+  async updateSuperhero(id: string, superhero: Partial<ISuperhero>): Promise<ISuperhero | null> {
+    return this.repository.update(id, superhero);
   }
 
   // Método para deletar um super-herói
