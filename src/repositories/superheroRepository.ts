@@ -15,9 +15,9 @@ class SuperHeroRepository {
   }
 
   // Busca de super-herói por nome
-  public async findByName(nome: string): Promise<ISuperhero | null> {
+  public async findById(id: string): Promise<ISuperhero | null> {
     try {
-      return await SuperHero.findOne({ nome });
+      return await SuperHero.findOne({ _id: new ObjectId(id) });
     } catch (error) {
       throw new Error(`Erro ao buscar super-herói: ${(error as Error).message}`);
     }
@@ -33,9 +33,9 @@ class SuperHeroRepository {
   }
 
   // Exclusão de super-herói
-  public async delete(nome: string): Promise<boolean> {
+  public async delete(id: string): Promise<boolean> {
     try {
-      const result = await SuperHero.findOneAndDelete({ nome });
+      const result = await SuperHero.findOneAndDelete({ _id: new ObjectId(id) });
       return result !== null;
     } catch (error) {
       throw new Error(`Erro ao deletar super-herói: ${(error as Error).message}`);

@@ -10,8 +10,8 @@ export class SuperheroService {
   }
 
   // Método para obter um super-herói pelo nome
-  async getSuperheroByName(nome: string): Promise<ISuperhero | null> {
-    return this.repository.findByName(nome);
+  async getSuperheroById(id: string): Promise<ISuperhero | null> {
+    return this.repository.findById(id);
   }
 
   // Método para criar um novo super-herói
@@ -25,7 +25,7 @@ export class SuperheroService {
   }
 
   // Método para deletar um super-herói
-  async deleteSuperhero(nome: string): Promise<boolean> {
-    return this.repository.delete(nome);
+  async deleteSuperhero(id: string): Promise<boolean> {
+    return this.repository.delete(id);
   }
 }
