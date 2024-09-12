@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import superheroRoutes from './routes/superheroRoutes';
+import autheRoutes from './routes/admin/autheRoutes';
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const app: Application = express();
 
 app.use(bodyParser.json());
 app.use('/api/superheroes', superheroRoutes);
+app.use('/api/', autheRoutes);
 
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || '';
