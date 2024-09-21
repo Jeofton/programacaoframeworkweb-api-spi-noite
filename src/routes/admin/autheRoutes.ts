@@ -4,5 +4,6 @@ import autheController, { AutheController } from "../../controllers/admin/autheC
 const router = Router();
 
 router.post('/registro', autheController.register);
+router.post('/login', autheController.login);
 
 export default router;
